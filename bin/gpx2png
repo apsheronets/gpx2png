@@ -62,6 +62,30 @@ unless @fail
   e = klass.new
   e.coords = g.coords
 
+  e.add_marker(
+    blob: File.read("/home/komar/devel/hiking/public/images/pin-shadow.png"), # added default marker
+    lat: g.coords.first[:lat],
+    lon: g.coords.first[:lon]
+  )
+
+  e.add_marker(
+    blob: File.read("/home/komar/devel/hiking/public/images/pin-icon-start.png"), # added default marker
+    lat: g.coords.first[:lat],
+    lon: g.coords.first[:lon]
+  )
+
+  e.add_marker(
+    blob: File.read("/home/komar/devel/hiking/public/images/pin-shadow.png"), # added default marker
+    lat: g.coords.last[:lat],
+    lon: g.coords.last[:lon]
+  )
+
+  e.add_marker(
+    blob: File.read("/home/komar/devel/hiking/public/images/pin-icon-end.png"), # added default marker
+    lat: g.coords.last[:lat],
+    lon: g.coords.last[:lon]
+  )
+
   if options[:size]
     # constant size
     options[:size] =~ /(\d+)x(\d+)/
